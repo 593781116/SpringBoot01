@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Dao.UserRepository;
 import com.example.demo.domain.User;
 import javafx.application.Application;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,6 @@ public class UserRepositoryTest {
         userRepository.save(new User("紫川秀","123456","aa@qq.com","秀川统领，阿秀",formattedDate));
         userRepository.save(new User("紫川秀","123456","aa@qq.com","秀川统领，阿秀",formattedDate));
 
+        Assert.assertEquals(9, userRepository.findAll().size());
     }
 }
