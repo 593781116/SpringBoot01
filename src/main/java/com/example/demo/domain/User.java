@@ -2,7 +2,6 @@ package com.example.demo.domain;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import java.io.Serializable;
@@ -15,25 +14,28 @@ public class User implements Serializable{
     @GeneratedValue
     private Long id;//唯一标识
 
-    @Column(nullable = false, unique = true)
     private String userName; //登入名
 
-    @Column(nullable = false)
     private String passWord; //密码
 
-    @Column(nullable = false, unique = true)
     private String email;//邮件
 
-    @Column(nullable = true, unique = true)
     private String nickName;//外号
 
-    @Column(nullable = false)
     private String regTime;// 注册时间
 
     public User(){};
     public User(String name,String pass){
         this.userName=name;
         this.passWord=pass;
+    }
+
+    public User(String name,String pass,String email,String nName,String time){
+        this.userName=name;
+        this.passWord=pass;
+        this.email=email;
+        this.nickName=nName;
+        this.regTime=time;
     }
     public String getUserName() {
         return userName;
