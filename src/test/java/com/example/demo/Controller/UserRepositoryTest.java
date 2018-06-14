@@ -25,9 +25,11 @@ public class UserRepositoryTest {
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG);
         String formattedDate = dateFormat.format(date);
         userRepository.save(new User("紫川秀","123456","aa@qq.com","秀川统领，阿秀",formattedDate));
-        userRepository.save(new User("紫川秀","123456","aa@qq.com","秀川统领，阿秀",formattedDate));
-        userRepository.save(new User("紫川秀","123456","aa@qq.com","秀川统领，阿秀",formattedDate));
+        userRepository.save(new User("斯特林","111111","bb@qq.com","木头,紫川之虎",formattedDate));
+        userRepository.save(new User("帝林","1234567","cc@qq.com","魔鬼",formattedDate));
 
         Assert.assertEquals(9, userRepository.findAll().size());
+        Assert.assertEquals("斯特林",userRepository.findByNameOrEamil("斯特林","bb@qq.com").getNickName());
+        userRepository.delete(userRepository.findByUserName("帝林"));
     }
 }
